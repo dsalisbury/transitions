@@ -128,8 +128,9 @@ class Transition(object):
         Returns: boolean indicating whether or not the transition was
             successfully executed (True if successful, False if not).
         """
-        logger.info("Initiating transition from state %s to state %s...",
-                    self.source, self.dest)
+        logger.info(
+            "Initiating transition from state %s to state %s because of %s...",
+            self.source, self.dest, event_data.event.name)
         machine = event_data.machine
 
         for func in self.prepare:
